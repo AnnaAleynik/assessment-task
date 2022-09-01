@@ -1,0 +1,22 @@
+#!/usr/bin/env sh
+
+set -e
+
+# Setup specific Bundler options if this is CI
+if [ "$CI" ]; then
+  BUNDLER_ARGS="--without development staging production"
+fi
+
+# Make sure we have Bundler installed
+gem install bundler --conservative
+
+# Set up Ruby dependencies via Bundler into .bundle folder
+rm -f .bundle/config
+
+bundle check --path .bundle > /dev/null 2>&1 ||
+  bundle install --path=.bundle $BUNDLER_ARGS
+
+dropdb --if-exists assessment-task-dev
+dropdb --if-exists assessment-task-test
+
+bin/rails db:create db:structure:load
