@@ -8,14 +8,20 @@ gem "rails", "~> 6.1.6", ">= 6.1.6.1"
 gem "pg", ">= 0.18", "< 2.0"
 gem "puma", "~> 4.1"
 
+gem "httparty"
+gem "interactor"
+gem "kaminari"
+
 gem "jbuilder", "~> 2.7"
 gem "sass-rails", ">= 6"
+gem "slim-rails"
 gem "turbolinks", "~> 5"
-gem "webpacker", "~> 4.0"
+gem "webpacker", "~> 5.0"
 
 gem "bootsnap", ">= 1.4.2", require: false
 
 group :development, :test do
+  gem "dotenv-rails"
   gem "pry"
   gem "rubocop", require: false
   gem "rubocop-rails", require: false
