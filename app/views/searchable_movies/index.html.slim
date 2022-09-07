@@ -2,6 +2,12 @@
   h4
     = @error
 - if @results.present?
+  p
+    - if @external
+      | Results by TMDB
+    - else
+      = @external
+      | Results from cache
   = render "list"
 - else
   h4 Search Movie!

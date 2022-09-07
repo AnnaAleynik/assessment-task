@@ -8,7 +8,7 @@ module Movie
     def call
       check_cache
 
-      context.fail!(error: t("errors.messages.movie.search.keyword_required")) if keyword.blank?
+      context.fail!(error: I18n.t("errors.messages.movie.search.keyword_required")) if keyword.blank?
       context.fail!(error: response.error_message) unless response.success?
       context.results = result
     end
@@ -18,8 +18,8 @@ module Movie
     def check_cache
       if Rails.cache.exist?(cache_key)
         request.update(count: request_count + 1)
-        context.external = true
       else
+        context.external = true
         request.update(count: 0)
       end
     end

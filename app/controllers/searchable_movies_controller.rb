@@ -1,8 +1,8 @@
 class SearchableMoviesController < ApplicationController
   def index
     response = Movie::Search.call(search_params)
+
     @external = response.external
-    # binding.pry
     if response.success?
       @results = response.results
     else
