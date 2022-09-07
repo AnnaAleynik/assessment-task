@@ -10,12 +10,15 @@ html
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
 
   body
-    p
+    h3.text-center.mt-1
       | Hello, you can search movies! Try it!
 
-    = form_with url: searchable_movies_path, method: :get, local: true do |f|
-      = f.text_field :keyword
-      = f.submit 'Search'
-    br
+    .container.mb-5
+      .row.justify-content-center
+        = form_with url: searchable_movies_path, method: :get, local: true do |f|
+          .input-group
+            = f.text_field :keyword
+            = f.submit 'Search', class: "btn btn-outline-primary"
+        br
 
     = yield
