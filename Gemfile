@@ -23,8 +23,10 @@ gem "bootsnap", ">= 1.4.2", require: false
 group :development, :test do
   gem "dotenv-rails"
   gem "pry"
+  gem "rspec-rails"
   gem "rubocop", require: false
   gem "rubocop-rails", require: false
+  gem "rubocop-rspec", require: false
 end
 
 group :development do
@@ -32,4 +34,8 @@ group :development do
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
   gem "web-console", ">= 3.3.0"
+end
+
+group :test do
+  gem "database_cleaner-active_record"
 end

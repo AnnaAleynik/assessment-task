@@ -1,0 +1,7 @@
+- if @error
+  h4
+    = @error
+- if @results.present?
+  = render "list"
+- else
+  h4 Search Movie!
