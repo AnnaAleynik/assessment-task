@@ -43,7 +43,7 @@ describe Movie::Search do
       expect(context).to be_success
       expect(context.results).to be_a_search_relation(results)
     end
-
+      
     context "when response failed" do
       let(:success?) { false }
       let(:results) do
