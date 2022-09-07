@@ -17,8 +17,6 @@ ActiveRecord::Schema.define(version: 2022_09_05_062845) do
 
   create_table "search_requests", force: :cascade do |t|
     t.string "keyword"
-    t.integer "total_pages"
-    t.integer "total_results"
     t.integer "count", default: 0
     t.integer "page"
     t.datetime "created_at", precision: 6, null: false

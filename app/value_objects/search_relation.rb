@@ -1,22 +1,23 @@
 class SearchRelation
-  def initialize(results)
-    @results = results
-    @page = results[:page]
+  def initialize(data)
+    @data = data
+    @results = data[:results]
+    @total_results = data[:total_results]
     @limit = 20
   end
 
-  attr_reader :results, :limit
+  attr_reader :data, :results, :limit
 
   def current_page
-    results[:page]
+    data[:page]
   end
 
   def total_pages
-    results[:total_pages]
+    data[:total_pages]
   end
 
   def all
-    results[:results]
+    results
   end
 
   def limit_value

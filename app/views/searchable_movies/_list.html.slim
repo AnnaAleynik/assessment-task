@@ -1,0 +1,48 @@
+table
+  thead
+    tr
+      th ID
+      th Title
+      th Original Title
+      th Overview
+      th Genre Ids
+      th Popularity
+      th Poster Path
+      th Adult
+      th Release Date
+      th Original Language
+      th Vote Average
+      th Vote Count
+
+  tbody
+    - if @results.all.present?
+      - @results.all.each do |result|
+        tr
+          td
+            = result[:id]
+          td
+            = result[:title]
+          td
+            = result[:original_title]
+          td
+            = result[:overview]
+          td
+            = result[:genre_ids]
+          td
+            = result[:popularity]
+          td
+            = result[:poster_path]
+          td
+            = result[:adult]
+          td
+            = result[:release_date]
+          td
+            = result[:original_language]
+          td
+            = result[:vote_average]
+          td
+            = result[:vote_count]
+    - else
+      h4 Not Found. Try something else
+
+= paginate @results
