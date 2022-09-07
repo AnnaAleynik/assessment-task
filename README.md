@@ -1,9 +1,10 @@
+You can find deployed app ["Here"](https://assessment-search-movie.herokuapp.com/)
+
+
 This project created for searching movies on ["The Movie Database"](https://developers.themoviedb.org/3/search/search-movies)
 
 - The backend is implemented in ruby and ruby on rails
 - PostgreSQL
-- 
-
 
 # High level workflow:
 
