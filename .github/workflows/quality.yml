@@ -16,14 +16,15 @@ jobs:
           POSTGRES_PASSWORD: password
     env:
       RAILS_ENV: test
+      DATABASE_URL: "postgres://rails:password@localhost:5432/assessment_task_test"
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Install Ruby and gems
-        uses: ruby/setup-ruby@8f312efe1262fb463d906e9bf040319394c18d3e
+        uses: ruby/setup-ruby@v1
         with:
-          bundler-cache: true
           ruby-version: '2.7.5'
+          bundler-cache: true
       - name: Install yarn dependencies
         run: yarn install
       - name: Set up database schema
@@ -35,11 +36,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Install Ruby and gems
-        uses: ruby/setup-ruby@8f312efe1262fb463d906e9bf040319394c18d3e
+        uses: ruby/setup-ruby@v1
         with:
-          bundler-cache: true
           ruby-version: '2.7.5'
+          bundler-cache: true
       - name: Lint
         run: bin/quality
